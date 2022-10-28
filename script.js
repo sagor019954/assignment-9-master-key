@@ -1,6 +1,6 @@
 const display = document.getElementById("display");
 const question = document.getElementById("question");
-const startBtn = document.getElementById("start");
+const startBtn = document.getElementById("startsBtn");
 const countdownOverlay = document.getElementById("countdown");
 const resultModal = document.getElementById("result");
 const modalBackground = document.getElementById("modal-background");
@@ -68,6 +68,7 @@ const gameOver = () => {
   // so total time taken is current time - start time
   const finishTime = new Date().getTime();
   const timeTaken = (finishTime - startTime) / 1000;
+  const time = parseInt(timeTaken)
 
   // show result modal
   resultModal.innerHTML = "";
@@ -80,12 +81,12 @@ const gameOver = () => {
   // show result
   resultModal.innerHTML += `
     <h1>Finished!</h1>
-    <p>You took: <span class="bold">${timeTaken}</span> seconds</p>
+    <p>You took: <span class="bold">${time}</span> seconds</p>
     <p>You made <span class="bold red">${errorCount}</span> mistakes</p>
     <button onclick="closeModal()">Close</button>
   `;
   modalBackground.appendChild(resultModal);
-  addHistory(questionText, timeTaken, errorCount);
+  addHistory(questionText, time, errorCount);
 
   // restart everything
   startTime = null;
@@ -107,15 +108,16 @@ const starts = () => {
   countdownOverlay.style.display = "flex";
 
   const startCountdown = setInterval(() => {
+    console.log(count);
     countdownOverlay.innerHTML = `<h1>${count}</h1>`;
 
     // finished timer
     if (count === 0) {
-      // countdownOverlay.innerHTML = `<h1>${count}</h1>`;
       // -------------- START TYPING -----------------
       document.addEventListener("keydown", typeController);
       countdownOverlay.style.display = "flex";
-      countdownOverlay.classList.add("hidden");
+      countdownOverlay.style.display = "none";
+      // countdownOverlay.classList.add("hidden");
       clearInterval(startCountdown);
       startTime = new Date().getTime();
 
@@ -125,7 +127,7 @@ const starts = () => {
 };
 
 // START Countdown
-startBtn.addEventListener("click", start);
+startBtn.addEventListener("click", starts);
 
 // If history exists, show it
 displayHistory();
@@ -136,5 +138,5 @@ setInterval(() => {
   const timeSpent = (currentTime - startTime) / 1000;
 
 
-  document.getElementById("show-time").innerHTML = `${startTime ? timeSpent : 0} seconds`;
+  document.getElementById("show-time").innerHTML = `${startTime ? parseInt(timeSpent) : 0} seconds`;
 }, 1000);
