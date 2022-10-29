@@ -1,0 +1,23 @@
+* {
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+
+.blog-section {
+    width: 70%;
+    margin: 0 auto;
+    background-color: rgba(239, 233, 233, 0.551);
+    font-family: 'Lato', sans-serif;
+}
+
+.blog {
+    padding: 15px;
+}
+
+.blog-heading {
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 15px;
+    font-size: x-large;
+}

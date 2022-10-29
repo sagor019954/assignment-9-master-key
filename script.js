@@ -10,7 +10,6 @@ let userText = "";
 let errorCount = 0;
 let startTime;
 let questionText = "";
-let worngText = []
 // Load and display question
 fetch("./texts.json")
   .then((res) => res.json())
@@ -25,9 +24,7 @@ const typeController = (e) => {
   console.log(newLetter);
   // Handle backspace press
   if (newLetter == "Backspace") {
-    worngText.push(errorCount);
     errorCount++;
-    console.log(worngText);
     userText = userText.slice(0, userText.length - 1);
     return display.removeChild(display.lastChild);
   }
