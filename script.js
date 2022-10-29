@@ -24,7 +24,7 @@ const typeController = (e) => {
   console.log(newLetter);
   // Handle backspace press
   if (newLetter == "Backspace") {
-    errorCount++;
+    // errorCount++;
     userText = userText.slice(0, userText.length - 1);
     return display.removeChild(display.lastChild);
   }
@@ -45,6 +45,7 @@ const typeController = (e) => {
   if (newLetterCorrect) {
     display.innerHTML += `<span class="green">${newLetter === " " ? "▪" : newLetter}</span>`;
   } else {
+    errorCount++;
     display.innerHTML += `<span class="red">${newLetter === " " ? "▪" : newLetter}</span>`;
   }
 

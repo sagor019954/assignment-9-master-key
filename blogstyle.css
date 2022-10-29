@@ -9,6 +9,9 @@
     margin: 0 auto;
     background-color: rgba(239, 233, 233, 0.551);
     font-family: 'Lato', sans-serif;
+    line-height: 1.6;
+    word-spacing: 3px;
+    font-size: large;
 }
 
 .blog {

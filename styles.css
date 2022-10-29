@@ -188,11 +188,11 @@ button {
   /* justify-content: center; */
 }
 
-
+/* for laptop */
 @media only screen and (max-width: 1450px) {
   .box-container {
     padding: 0 20px;
-    width: 50%;
+    width: 70%;
   }
 
   .card {
@@ -200,10 +200,11 @@ button {
   }
 }
 
+/* for tablet */
 @media only screen and (max-width: 950px) {
   .box-container {
     padding: 0 20px;
-    width: 50%;
+    width: 70%;
   }
 
   .card {
@@ -211,6 +212,7 @@ button {
   }
 }
 
+/* for mobile device */
 @media only screen and (max-width: 550px) {
   .box-container {
     padding: 0 20px;
